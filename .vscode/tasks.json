@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build Game Hub",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "-Iinclude",
+                "src/main.cpp",
+                "src/games/number_guess.cpp",
+                "src/games/tic_tac_toe.cpp",
+                "src/games/hangman.cpp",
+                "src/games/snake.cpp",
+                "src/games/rock_paper_scissors.cpp",
+                "src/games/sudoku.cpp",
+                "src/games/game_2048.cpp",
+                "src/utils/console_utils.cpp",
+                "-o",
+                "bin/game_hub.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiles all mini-games into bin/game_hub.exe"
+        },
+        {
+            "type": "shell",
+            "label": "Run Game Hub (Console Window)",
+            "command": "cmd /c start cmd /k \"bin\\game_hub.exe\"",
+            "dependsOn": "Build Game Hub",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Builds and launches game in a new external terminal window"
+        },
+        {
+            "type": "shell",
+            "label": "Run Game Hub (Terminal)",
+            "command": ".\\bin\\game_hub.exe",
+            "dependsOn": "Build Game Hub",
+            "problemMatcher": [],
+            "group": "none",
+            "detail": "Builds and runs game directly inside VS Code terminal"
+        }
+    ]
+}

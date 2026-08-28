@@ -1,0 +1,13 @@
+# Temporary build objects
+*.o
+*.obj
+*.pdb
+*.ilk
+*.tmp
+*.log
+
+# VS Code & IDE files
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+.vs/
